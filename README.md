@@ -1,5 +1,18 @@
 # attenti
-I didn't manage to convert values on the converter site, however task number 6 combines both ui and server so i hope it covers it....
+# questions 1-5  regarding ui test 
+please do the following:
+steps to set up environment for running the automation test (using JavaScript -- just to give you a little bit taste of my abilities)
+1. go to node.js website and download node.js
+2. go to protractor website and follow instaction on how to download protractor -- run this command (npm install -g protractor)
+3. get an instance of a Selenium Server running using this command (webdriver-manager update)
+4. Now start up a server running this command (webdriver-manager start)
+5. create a folder containing the conf.js and test.js files in it
+6. via the commnad line navigate to that folder from step 5
+7. run this commnad inorder to run the test (protractor conf.js)
+good luck.... :-)
+
+
+# task number 6 
 This exercise is written in python on an online interperter
 you need to have python install on your machine
 Install Python 3.6 using the MSI available in python.org download page.
