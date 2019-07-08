@@ -1,0 +1,48 @@
+# importing the requests library 
+import requests 
+
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome()
+
+#go to weather.com site
+driver.get("https://weather.com/")
+assert "TheWeatherChannel" in driver.title
+
+#click on search textbox
+driver.find_element(By.XPATH,'//*[@id="header-TwcHeader-10c7c60c-aebb-4e78-b655-512b2460d9f4"]/div/div/div/div[1]/div/div[1]/div/input').click()
+
+#send_keys to the searchbox
+driver.clear()
+driver.send_keys("20852")
+driver.send_keys(Keys.RETURN)
+
+
+#click on the first choice in the menue
+driver.find_element(By.XPATH,'//*[@id="header-TwcHeader-10c7c60c-aebb-4e78-b655-512b2460d9f4"]/div/div/div/div[1]/div/div[2]/div[2]/div/ul/li[1]/a').click()
+
+#get the temperture text from the page
+weatherChannelTemp = driver.find_element(By.XPATH, '//*[@id="hero-left-Nowcard-92c6937d-b8c3-4240-b06c-9da9a8b0d22b"]/div/div/section/div[2]/div/div[2]/span/text()')
+
+driver.close()
+
+# get data from openweathermap site for zip code 20852 using API
+URL = "http://api.openweathermap.org/data/2.5/weather?zip=20852,us&appid=f32d82a89eab56c365ddc653c225b7d8"
+
+#this is the what you need to add to celcius to get kelvin temperture
+kelvinTemp = 273.15
+
+r = requests.get(url = URL) 
+
+data = r.json() 
+
+temp_min = data["main"]["temp_min"]
+temp_max = data["main"]["temp_max"]
+temp = data["main"]["temp"]
+
+avgTemp = (temp_min+temp_max+temp)/3
+
+#asserting temp from api equals to temp from ui
+assert avgTemp-kelvinTemp == weatherChannelTemp
