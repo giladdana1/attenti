@@ -1,4 +1,5 @@
 # attenti
+I didn't manage to convert values on the converter site, however task number 6 combines both ui and server so i hope it covers it....
 This exercise is written in python on an online interperter
 you need to have python install on your machine
 Install Python 3.6 using the MSI available in python.org download page.
@@ -27,3 +28,5 @@ Replace 2.x.x with the actual version of Selenium server you downloaded from the
 If JRE is installed as a non-root user and/or if it is not available in the PATH (environment variable), you can type the relative or absolute path to the java command. Similarly, you can provide a relative or absolute path to Selenium server jar file. Then, the command will look something like this:
 
 /path/to/java -jar /path/to/selenium-server-standalone-2.x.x.jar
+
+Thank You
