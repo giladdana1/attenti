@@ -1,0 +1,57 @@
+"use strict";
+// This is a test case example of go to eCommerce Site and click on a Product.
+describe("Conversion Assertion", function () {
+    it("converts celcius to farenhite", function(){
+         browser.ignoreSynchronization = true; // This allows to protractor to run on regular website, not specific to angular 
+         browser.get("http://metric-conversions.com/"); // Go to a specific URL
+         console.log("site opens successfuly"); // Log a message
+         browser.sleep(1000);
+         //click on celcius to farenhite button
+         element(by.css("#mainLinks > a:nth-child(3)")).click();
+         console.log("celcius to farenhite button clicked successfuly"); // Log a message
+         browser.sleep(1000);
+         element(by.css("#argumentConv")).sendKeys('30');
+         browser.sleep(1000);
+         //get the result 
+         var resultTxt = element(by.css("#answer"));
+         expect(resultTxt.getText()).toEqual("30°C= 86.00000°F");
+         console.log("successful validation"); // Log a message
+    });
+    it("converts meters to feet", function(){
+         browser.ignoreSynchronization = true; // This allows to protractor to run on regular website, not specific to angular 
+         browser.get("http://metric-conversions.com/"); // Go to a specific URL
+         console.log("site opens successfuly"); // Log a message
+         browser.sleep(1000);
+         //click on celcius to farenhite button
+         element(by.css("#mainLinks > a:nth-child(9)")).click();
+         console.log("meters to feet button clicked successfuly"); // Log a message
+         browser.sleep(1000);
+         element(by.css("#argumentConv")).sendKeys('30');
+         browser.sleep(1000);
+         //get the result 
+         var resultTxt = element(by.css("#answer"));
+         expect(resultTxt.getText()).toEqual("30m= 98ft 5.102364in");
+         browser.sleep(5000);
+         console.log("successful validation"); // Log a message
+    });
+    it("converts ounces to grams", function(){
+         browser.ignoreSynchronization = true; // This allows to protractor to run on regular website, not specific to angular 
+         browser.get("http://metric-conversions.com/"); // Go to a specific URL
+         console.log("site opens successfuly"); // Log a message
+         browser.sleep(1000);
+         //click on weight
+         element(by.css("#typeMenu > a.typeConv.weight.bluebg")).click();
+         console.log("weight button clicked successfuly"); // Log a message
+         browser.sleep(1000);
+         //click on ounces to grams
+         element(by.css("#popLinks > ol > li:nth-child(5) > a")).click();
+         console.log("aunces to grams button clicked successfuly"); // Log a message
+         browser.sleep(1000);
+         element(by.css("#argumentConv")).sendKeys('30');
+         browser.sleep(1000);
+         //get the result 
+         var resultTxt = element(by.css("#answer"));
+         expect(resultTxt.getText()).toEqual("30oz= 850.4857g");
+         console.log("successful validation"); // Log a message
+    });         
+});
